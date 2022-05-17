@@ -10,7 +10,7 @@ import {
 import React, { useState } from "react";
 import ModalMovie from "../ModalMovie/ModalMovie";
 
-function Movie({ movie }) {
+function Movie({ movie, updateMovie }) {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);
@@ -37,13 +37,18 @@ function Movie({ movie }) {
           <CardActions>
             {/* <Button size="small">Add to Favorite</Button> */}
             <Button size="small" onClick={handleOpen}>
-              Add to Favorite
+              More Details
             </Button>
           </CardActions>
         </Card>
       </Grid>
       {movie && (
-        <ModalMovie open={open} handleClose={handleClose} movie={movie} />
+        <ModalMovie
+          open={open}
+          handleClose={handleClose}
+          movie={movie}
+          updateMovie={updateMovie}
+        />
       )}
     </>
   );
